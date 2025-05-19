@@ -1,6 +1,13 @@
 <?php
 require_once __DIR__ . '/../models/User.php';
 
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php?controller=auth&action=login');
+    exit;
+}
+
+
 class UserController
 {
     public function index()

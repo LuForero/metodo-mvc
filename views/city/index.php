@@ -1,4 +1,13 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
+
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php?controller=auth&action=login');
+    exit;
+}
+?>
+
 <div class="container mt-5">
     <h2>Listado de Ciudades</h2>
     <a href="index.php?controller=city&action=create" class="btn btn-success mb-3">Agregar Ciudad</a>
@@ -22,5 +31,7 @@
         </tbody>
     </table>
 </div>
+<a href="index.php?controller=auth&action=logout" style="color: red; float: right;">Cerrar sesión</a>
+
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

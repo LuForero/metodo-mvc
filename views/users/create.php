@@ -31,4 +31,4 @@
     <button class="btn btn-primary">Guardar</button>
 </form>
 
-<?php require_once __DIR__ . '/../layout/footer.php'; ?>
+

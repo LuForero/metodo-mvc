@@ -1,6 +1,13 @@
 <?php
 require_once __DIR__ . '/../models/City.php';
 
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php?controller=auth&action=login');
+    exit;
+}
+
+
 class CityController {
     private $cityModel;
 
